@@ -47,12 +47,12 @@ def _get_arxiv():
     return ArxivQueryRun(api_wrapper=ArxivAPIWrapper(), args_schema=ArxivInput)
 
 
-def _get_you_search():
-    return create_retriever_tool(
-        YouRetriever(n_hits=3, n_snippets_per_hit=3),
-        "you_search",
-        "Searches for documents using You.com",
-    )
+# def _get_you_search():
+#     return create_retriever_tool(
+#         YouRetriever(n_hits=3, n_snippets_per_hit=3),
+#         "you_search",
+#         "Searches for documents using You.com",
+#     )
 
 
 def _get_sec_filings():
@@ -103,7 +103,7 @@ class AvailableTools(str, Enum):
     TAVILY_ANSWER = "Search (short answer, Tavily)"
     RETRIEVAL = "Retrieval"
     ARXIV = "Arxiv"
-    YOU_SEARCH = "You.com Search"
+    # YOU_SEARCH = "You.com Search"
     SEC_FILINGS = "SEC Filings (Kay.ai)"
     PRESS_RELEASES = "Press Releases (Kay.ai)"
     PUBMED = "PubMed"
@@ -113,7 +113,7 @@ class AvailableTools(str, Enum):
 TOOLS = {
     AvailableTools.DDG_SEARCH: _get_duck_duck_go,
     AvailableTools.ARXIV: _get_arxiv,
-    AvailableTools.YOU_SEARCH: _get_you_search,
+    # AvailableTools.YOU_SEARCH: _get_you_search,
     AvailableTools.SEC_FILINGS: _get_sec_filings,
     AvailableTools.PRESS_RELEASES: _get_press_releases,
     AvailableTools.PUBMED: _get_pubmed,
